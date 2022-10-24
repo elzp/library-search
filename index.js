@@ -7,6 +7,12 @@ input.addEventListener('change', (e) => {
   inputedText = e.target.value;
 });
 
+const button = document.querySelector('[id=form__button]');
+
+button.addEventListener('click', (e) => {
+  e.preventDefault();
+});
+
 
 var requestURL = `https://cors-anywhere.herokuapp.com/https://www.goodreads.com/book/auto_complete?format=json&q=${inputedText}`;
 var request = new XMLHttpRequest();
