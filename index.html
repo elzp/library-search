@@ -1,19 +1,19 @@
-<div class="app">
-	<form class="form">
-		<input class="form__input" type="text" id="book-name" name="book-name" placeholder="Nazwa książki"/>
-		<button id="form__button">Wyszukaj</button>
-	</form>
+﻿import './style.css';
 
-	<ul class="results">
-		<li class="entry">
-      <img class="entry__image" src="https://via.placeholder.com/50" alt="Cover">
-      <p class="entry__name">To jest przykładowa pozycja</p>
-    </li>
-    <li class="entry">
-      <img class="entry__image" src="https://via.placeholder.com/50" alt="Cover">
-      <p class="entry__name">To jest przykładowa pozycja</p>
-    </li>
-	</ul>
-</div>
+const input = document.querySelector('[id=book-name]');
+console.log(input);
+let inputedText;
+input.addEventListener('change', (e) => {
+  inputedText = e.target.value;
+});
 
-<h4>Przygotowano na podstawie <a href="https://www.goodreads.com/api">Goodreads API</a></h4>
+var requestURL = `https://cors-anywhere.herokuapp.com/https://www.goodreads.com/book/auto_complete?format=json&q=${inputedText}`;
+var request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+
+request.onload = function () {
+  var response = request.response;
+  console.log(response);
+};
