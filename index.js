@@ -8,9 +8,12 @@ input.addEventListener('change', (e) => {
 });
 
 const button = document.querySelector('[id=form__button]');
+const resultsContainer = document.querySelector('.results');
 
 button.addEventListener('click', (e) => {
   e.preventDefault();
+  resultsContainer.innerHTML='';
+
 });
 
 function request(textToFind) {
