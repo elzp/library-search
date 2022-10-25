@@ -27,3 +27,10 @@ function request(textToFind) {
     console.log(resultOfRequest);
   };
 }
+
+function makeBookEl({title,image}){
+return`<li class="entry">
+<img class="entry__image" src="${image}" alt="Cover">
+<p class="entry__name">${title}</p>
+</li>`
+}
